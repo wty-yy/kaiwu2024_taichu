@@ -219,7 +219,7 @@ class Agent(BaseAgent):
     if now - self.last_opt_time > 120:
       self.last_opt_time = now
       self.save_model()  # save to local computer
-      # clean_ckpt_memory(path_name='restore', logger=self.logger)
+      clean_ckpt_memory(path_name='restore', logger=self.logger)
 
   @save_model_wrapper
   def save_model(self, path=None, id="1"):

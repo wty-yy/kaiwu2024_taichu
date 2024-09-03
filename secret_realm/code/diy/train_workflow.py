@@ -84,7 +84,7 @@ def workflow(envs, agents: list[Agent], logger=None, monitor=None):
 
     now = time.time()
     if now - last_clean_ckpt_time > 120:
-      # clean_ckpt_memory(path_name='user', logger=logger)
+      clean_ckpt_memory(path_name='user', logger=logger)
       last_clean_ckpt_time = now
       
   # agent.train()
