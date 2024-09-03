@@ -1,0 +1,22 @@
+__pycache__
+.vscode
+
+# Useless directory (will generate by default)
+dynamic_programming
+monte_carlo
+q_learning
+sarsa
+
+# Tensorbaord logs
+runs
+dev
+log
+logs
+
+# Logs
+license.dat
+train
+code-workspace
+ckpt
+kaiwu_kernel
+test*

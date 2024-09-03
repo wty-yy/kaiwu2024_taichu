@@ -1,0 +1,9 @@
+gorge_walk:
+  run_handler: environment.gorge_walk_run_handler.NatureRunHandler
+  rl_helper: kaiwudrl.server.aisrv.kaiwu_rl_helper_standard.KaiWuRLStandardHelper
+  policies:
+    train_one:
+      policy_builder: kaiwudrl.server.aisrv.async_policy.AsyncBuilder
+      algo: diy
+      state: conf.gorge_walk_state.GorgeWalkState
+      action: conf.gorge_walk_action.GorgeWalkAction

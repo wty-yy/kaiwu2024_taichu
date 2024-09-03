@@ -1,0 +1,105 @@
+[app]
+# === === === === === === === === === === === === === === === === === === === ===
+# 下面的配置使用者可以按照需要修改
+# === === === === === === === === === === === === === === === === === === === ===
+
+# learner执行while True循环的进行训练，设置休息时间以便设置样本生产消耗比
+learner_train_by_while_true = true
+learner_train_sleep_seconds = 0.0001
+
+# 下面是replay buffer的相关配置
+replay_buffer_capacity = 4096
+preload_ratio = 1
+
+# learner上reverb样本的输入维度, 注意不同的算法维度不一样, 比如dqn的维度是21624, target_dqn的维度是21624
+sample_dim = 21624
+
+# torch使用时默认的线程数目, 针对单机限制CPU使用很重要
+torch_num_threads = 1
+
+# actor预测批处理大小
+predict_batch_size = 1
+
+# aisrv在单局里多次发送样本大小配置
+send_sample_size = 320
+
+# learner训练批处理大小限制
+train_batch_size = 256
+# 样本消耗/生成采样比
+production_consume_ratio = 10
+
+# reverb移除策略, 可选项是reverb.selectors.Lifo, reverb.selectors.Prioritized, reverb.selectors.Fifo
+reverb_remover = "reverb.selectors.Fifo"
+# reverb采样策略, 可选项是reverb.selectors.Prioritized, reverb.selectors.Fifo, reverb.selectors.Uniform
+reverb_sampler = "reverb.selectors.Uniform"
+
+# 预加载模型文件夹路径和ID
+preload_model = false
+preload_model_dir = "/data/ckpt/back_to_the_realm_dqn/"
+preload_model_id = 1000
+
+# 训练间隔多少步输出model文件, 该值需要根据实际情况调整, 设置过小则会导致落模型耗时长, 影响时延; 如果设置过大则导致learner/actor之间model同步间隔长
+dump_model_freq = 1000
+
+# 评估模式模型文件夹路径和ID
+eval_model_dir = "/data/ckpt/back_to_the_realm_dqn/"
+eval_model_id = 1000
+
+# === === === === === === === === === === === === === === === === === === === ===
+# 下面的配置, 由框架使用, 不建议使用者修改
+# === === === === === === === === === === === === === === === === === === === ===
+
+# 下面的项目是每个app要单独配置的
+app = "back_to_the_realm"
+self_play = false
+set_name = "back_to_the_realm_set1000"
+self_play_set_name = "back_to_the_realm_set1000"
+selfplay_app_conf = "conf/nature_app_back_to_the_realm.yaml"
+noselfplay_app_conf = "conf/nature_app_back_to_the_realm.yaml"
+algo_conf = "conf/nature_algo_back_to_the_realm.yaml"
+rainbow_env_name = "back_to_the_realm_dev"
+
+# 训练或者评估模式
+run_mode = "train"
+
+# 采用的算法
+algo = "target_dqn"
+
+# learner/actor之间同步model文件的时间间隔, 建议是偶数倍
+model_file_sync_per_minutes = 2
+
+# actor加载model文件的时间间隔, 建议是奇数倍
+model_file_load_per_minutes = 3
+
+# 使用的强化学习框架, 包括tensorflow_simple, tensorflow_complex, tensorrt, pytorch等, 默认是tensorflow_simple
+use_which_deep_learning_framework = "pytorch"
+
+# 预测是放在actor远程还是aisrv本地, 小规模场景建议是aisrv本地local模式, 大规模场景和小规模场景都可以使用的actor远程remote模式
+predict_local_or_remote = "local"
+
+# 接入采用标准化模式
+framework_integration_patterns = "standard"
+
+# 采用接入KaiwuEnv方式
+aisrv_framework = "kaiwu_env"
+
+# 采用的wrapper形式, 包括remote, local, none
+wrapper_type = "remote"
+
+# 在模型文件保存时, 需要保存的文件目录, 多个目录请按照逗号分割, 并且是以项目根目录开始看的
+copy_dir = "conf,target_dqn,dqn,diy"
+
+# 单个aisrv连接的kaiwu_env的数目
+aisrv_connect_to_kaiwu_env_count = 8
+
+# model文件FIFO的个数, 如果是采用最新的模型则设置为1; 需要采用历史模型则该值设置为需要的比如50, FIFO模式
+modelpool_max_save_model_count = 1
+
+# 下面是日志文件相关配置
+log_dir = "/data/projects/back_to_the_realm/log"
+level = "INFO"
+tensorflow_log_level = "INFO"
+
+# 设置actor和learner地址
+actor_addrs = { train_one = ["127.0.0.1:8888"]}
+learner_addrs = {train_one = ["127.0.0.1:9999"]}

@@ -1,0 +1,44 @@
+dynamic_programming:
+  actor_model: dynamic_programming.algorithm.agent.Agent
+  learner_model: dynamic_programming.algorithm.agent.Agent
+  aisrv_model: dynamic_programming.algorithm.agent.Agent
+  trainer: kaiwudrl.server.learner.standard_trainer.StandardTrainer
+  predictor: kaiwudrl.server.actor.standard_predictor.StandardPredictor
+  train_workflow: dynamic_programming.train_workflow.workflow
+  eval_workflow: kaiwu_agent.gorge_walk.dynamic_programming.eval_workflow.workflow
+
+monte_carlo:
+  actor_model: monte_carlo.algorithm.agent.Agent
+  learner_model: monte_carlo.algorithm.agent.Agent
+  aisrv_model: monte_carlo.algorithm.agent.Agent
+  trainer: kaiwudrl.server.learner.standard_trainer.StandardTrainer
+  predictor: kaiwudrl.server.actor.standard_predictor.StandardPredictor
+  train_workflow: monte_carlo.train_workflow.workflow
+  eval_workflow: kaiwu_agent.gorge_walk.monte_carlo.eval_workflow.workflow
+
+q_learning:
+  actor_model: q_learning.algorithm.agent.Agent
+  learner_model: q_learning.algorithm.agent.Agent
+  aisrv_model: q_learning.algorithm.agent.Agent
+  trainer: kaiwudrl.server.learner.standard_trainer.StandardTrainer
+  predictor: kaiwudrl.server.actor.standard_predictor.StandardPredictor
+  train_workflow: q_learning.train_workflow.workflow
+  eval_workflow: kaiwu_agent.gorge_walk.q_learning.eval_workflow.workflow
+
+sarsa:
+  actor_model: sarsa.algorithm.agent.Agent
+  learner_model: sarsa.algorithm.agent.Agent
+  aisrv_model: sarsa.algorithm.agent.Agent
+  trainer: kaiwudrl.server.learner.standard_trainer.StandardTrainer
+  predictor: kaiwudrl.server.actor.standard_predictor.StandardPredictor
+  train_workflow: sarsa.train_workflow.workflow
+  eval_workflow: kaiwu_agent.gorge_walk.sarsa.eval_workflow.workflow
+
+diy:
+  actor_model: diy.algorithm.agent.Agent
+  learner_model: diy.algorithm.agent.Agent
+  aisrv_model: diy.algorithm.agent.Agent
+  trainer: kaiwudrl.server.learner.standard_trainer.StandardTrainer
+  predictor: kaiwudrl.server.actor.standard_predictor.StandardPredictor
+  train_workflow: diy.train_workflow.workflow
+  eval_workflow: kaiwu_agent.gorge_walk.diy.eval_workflow.workflow

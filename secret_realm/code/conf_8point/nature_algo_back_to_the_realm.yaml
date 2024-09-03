@@ -1,0 +1,29 @@
+dqn:
+  actor_model: dqn.algorithm.agent.Agent
+  learner_model: dqn.algorithm.agent.Agent
+  aisrv_model: dqn.algorithm.agent.Agent
+  trainer: kaiwudrl.server.learner.standard_trainer.StandardTrainer
+  predictor: kaiwudrl.server.actor.standard_predictor.StandardPredictor
+  train_workflow: dqn.train_workflow.workflow
+  eval_workflow: kaiwu_agent.back_to_the_realm.dqn.eval_workflow.workflow
+  exam_workflow: kaiwu_agent.back_to_the_realm.dqn.exam_workflow.workflow
+
+target_dqn:
+  actor_model: target_dqn.algorithm.agent.Agent
+  learner_model: target_dqn.algorithm.agent.Agent
+  aisrv_model: target_dqn.algorithm.agent.Agent
+  trainer: kaiwudrl.server.learner.standard_trainer.StandardTrainer
+  predictor: kaiwudrl.server.actor.standard_predictor.StandardPredictor
+  train_workflow: target_dqn.train_workflow.workflow
+  eval_workflow: kaiwu_agent.back_to_the_realm.target_dqn.eval_workflow.workflow
+  exam_workflow: kaiwu_agent.back_to_the_realm.target_dqn.exam_workflow.workflow
+
+diy:
+  actor_model: diy.algorithm.agent.Agent
+  learner_model: diy.algorithm.agent.Agent
+  aisrv_model: diy.algorithm.agent.Agent
+  trainer: kaiwudrl.server.learner.standard_trainer.StandardTrainer
+  predictor: kaiwudrl.server.actor.standard_predictor.StandardPredictor
+  train_workflow: diy.train_workflow.workflow
+  eval_workflow: kaiwu_agent.back_to_the_realm.diy.eval_workflow.workflow
+  exam_workflow: kaiwu_agent.back_to_the_realm.diy.exam_workflow.workflow

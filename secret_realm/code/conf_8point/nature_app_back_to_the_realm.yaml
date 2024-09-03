@@ -1,0 +1,9 @@
+back_to_the_realm:
+  run_handler: environment.back_to_the_realm_run_handler.NatureRunHandler
+  rl_helper: kaiwudrl.server.aisrv.kaiwu_rl_helper_standard.KaiWuRLStandardHelper
+  policies:
+    train_one:
+      policy_builder: kaiwudrl.server.aisrv.async_policy.AsyncBuilder
+      algo: dqn
+      state: conf.back_to_the_realm_state.BackToTheRealmState
+      action: conf.back_to_the_realm_action.BackToTheRealmAction
