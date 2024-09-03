@@ -43,10 +43,10 @@ def train():
     os.environ.update(
         {
             "use_ckpt_sync": "False",
-            "wrapper_type": "local",
-            # "replay_buffer_capacity": "256",
-            # "preload_ratio": "1",
-            # "train_batch_size": "16",
+            # "wrapper_type": "local",
+            "replay_buffer_capacity": "2",
+            "preload_ratio": "2",
+            "train_batch_size": "1",
             # "use_prometheus": "True",
             # "aisrv_connect_to_kaiwu_env_count": "1",
         }

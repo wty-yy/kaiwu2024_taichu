@@ -2,7 +2,7 @@ import numpy as np
 
 # Hyper-parameters
 class Args:
-    version = "1.2_dppo_pretrain_v1.1"  # model version
+    version = "1.2.2_dppo_pretrain_1.2.1_955"  # model version
 
     # Algorithm specific arguments
     total_timesteps = int(1e7)  # total timesteps of the experiments
@@ -12,6 +12,7 @@ class Args:
     num_envs = 10  # the number of parallel environments
     # num_envs = 4  # the number of parallel environments
     num_steps = 256  # the number of steps to run in each environment per policy rollout 这个最好大于一个episode的长度，设置成512或者1024
+    # num_steps = 32  # the number of steps to run in each environment per policy rollout 这个最好大于一个episode的长度，设置成512或者1024
     anneal_lr = False  # whether to anneal the learning rate or not 是否退火
     gamma = 0.999  # the discount factor gamma 这个要再高一些 0.999左右，也可以是1
     gae_lambda = 0.95  # the lambda for the general advantage estimation
@@ -20,7 +21,7 @@ class Args:
     norm_adv = False  # advantages normalization 可能不需要
     clip_coef = 0.2  # the surrogate clipping coefficient
     clip_vloss = False  # whether or not to use a clipped loss for the value function, as per the paper
-    ent_coef = 1e-5  # entropy coefficient 一般设置成1e-4，在训练最优模型的时候设置成0
+    ent_coef = 0  # entropy coefficient 一般设置成1e-4，在训练最优模型的时候设置成0
     # group_ent_coef = [1e-2, 1e-4]  # adjust entropy coefficient by proportion
     vf_coef = 0.5  # value function coefficient
     max_grad_norm = 0.5  # the maximum norm for the gradient clipping
@@ -37,7 +38,7 @@ class Args:
     obs_dim = np.prod(observation_img_shape) + observation_vec_shape[0] + 1
     ### Environment ###
     # n_treasure = ['norm', 13, 'norm']
-    n_treasure = 'uniform'
+    n_treasure = "uniform"
     norm_sigma = 3.0
     ### Reward ###
     # distance
@@ -70,7 +71,7 @@ class Args:
     # random start position
     random_start_position_ratio = 0.0
     ### Load Model ###
-    load_model_id = "2930"
+    load_model_id = "955"
 
 args = Args()
 

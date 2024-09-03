@@ -7,8 +7,9 @@ algorithm_on_policy_or_off_policy = 'off-policy'
 
 
 # learner执行while True循环的进行训练，设置休息时间以便设置样本生产消耗比
-learner_train_by_while_true = false  # update
-learner_train_sleep_seconds = 1.0
+# learner_train_by_while_true = false  # update
+learner_train_by_while_true = true  # 9.2.2好像只能支持这种定时自动训练的方法了
+learner_train_sleep_seconds = 20.0  # 2.5s 一个 256 num_steps, 加入10个多的新数据后训练一把
 
 # 下面是replay buffer的相关配置
 replay_buffer_capacity = 100  # process * 10

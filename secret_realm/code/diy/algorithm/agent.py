@@ -76,6 +76,7 @@ class Agent(BaseAgent):
     if self.start_time is None:
       self.logger.info(f"n_sample={len(trajs)}")
       self.start_time = self.last_opt_time = time.time()
+      self.save_model()  # save first model
     num_sample = len(trajs)  # train_batch_size in configure_app.toml
     num_steps = len(trajs[0].obs)
     assert num_steps == args.num_steps
@@ -218,7 +219,7 @@ class Agent(BaseAgent):
     if now - self.last_opt_time > 120:
       self.last_opt_time = now
       self.save_model()  # save to local computer
-      clean_ckpt_memory(path_name='restore', logger=self.logger)
+      # clean_ckpt_memory(path_name='restore', logger=self.logger)
 
   @save_model_wrapper
   def save_model(self, path=None, id="1"):
